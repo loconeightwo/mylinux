@@ -200,7 +200,7 @@ Plymouth.SetRefreshFunction(refresh);
 
 # ====================[ Text_center begin ]==================== #
 
-per.image = Image.Text ("Persona Ubuntu",255,255,255,1, perfont);
+per.image = Image.Text ("",255,255,255,1, perfont);
         per.sprite = Sprite(per.image);
         per.x = Window.GetX() + Window.GetWidth()  / 2 - per.image.GetWidth() / 2;
         per.y = Window.GetY() + Window.GetHeight() * 0.45  - per.image.GetHeight() / 2;
