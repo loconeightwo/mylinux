@@ -19,3 +19,5 @@ gsettings set org.gnome.desktop.screensaver picture-uri file:///usr/share/backgr
 sudo perl -i -0pe 's/#lockDialogGroup \{\n   background: #2c001e url\(noise-texture.png\);\n   background-repeat: repeat; \n\}/#lockDialogGroup \{\n   background: #2c001e url\(file:\/\/\/usr\/share\/backgrounds\/lockscreen.jpg\);\n   background-repeat: no-repeat;\n   background-size: cover;\n   background-position: center;\n\}/i' /usr/share/gnome-shell/theme/gdm3.css
 sudo bash $DIRECTORY/install.sh
 cp $DIRECTORY/.zshrc ~/
+cp -r $DIRECTORY/.vscode ~/
+timedatectl set-local-rtc 1 --adjust-system-clock
