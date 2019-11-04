@@ -11,6 +11,7 @@ fc-cache -f -v
 sudo apt install gconf-editor
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "CascadiaCode Nerd Font Regular 12"
 sudo apt purge gconf-editor
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 sudo bash $DIRECTORY/install-vimix.sh
 sudo cp $DIRECTORY/lockscreen.jpg $DIRECTORY/wallpaper.jpg /usr/share/backgrounds
