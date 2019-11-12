@@ -1,0 +1,5 @@
+{
+    "editor.fontFamily": "'CascadiaCode Nerd Font','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "terminal.integrated.fontSize": 12,
+    "python.linting.pylintArgs":["--extension-pkg-whitelist=cv2"]
+}
