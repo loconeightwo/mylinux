@@ -25,7 +25,7 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.micr
 
 # Add ibus-bamboo
 echo "${BLUE}Ibus bamboo${NC}"
-sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo -y
 sudo apt update
 
 # Install some packages
@@ -58,6 +58,7 @@ sudo apt install -f
 rm google-chrome-stable_current_amd64.deb
 rm teamviewer_amd64.deb
 rm skypeforlinux-64.deb
+rm packages.microsoft.gpg
 printf "\033c"
 
 
@@ -92,7 +93,8 @@ printf "\033c"
 # Copy fonts
 echo "${GREEN}Copy fonts${NC}"
 sudo cp $DIRECTORY/fonts/* /usr/share/fonts/truetype/
-fc-cache -f -v
+echo "${BLUE}Updating font... please wait...${NC}"
+fc-cache -f -v > /dev/null
 printf "\033c"
 
 # Fix time for Window and Linux dualboot
@@ -111,15 +113,19 @@ cp -r albert ~/.config/
 
 # Autostart on login
 cp -r autostart ~/.config
+printf "\033c"
 
 # Vscode Nautilus
+echo "${GREEN}Install Nautilus-OpenInVSCode${NC}"
 git clone https://github.com/vvanloc/Nautilus-OpenInVSCode.git
 cd Nautilus-OpenInVSCode
+echo '\n'
 sudo ./install.sh
 cd ..
+rm -rf Nautilus-OpenInVSCode
 
 # Copy user config
 cp user ~/.config/dconf/
 
-echo "DONE! <3"
-echo "${GREEN}Press any key to exit${NC}"; read a
+printf "\033c"
+echo "${RED}DONE! <3${RED}"
