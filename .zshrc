@@ -22,6 +22,9 @@ alias l='colorls --group-directories-first --almost-all'
 alias ll='colorls --group-directories-first --almost-all --long'
 
 alias cls='printf "\033c"'
+connectMeganet(){
+	curl -JL 'http://10.10.0.1/wifi/login?m=AC:ED:5C:4C:83:F3' > /dev/null
+}
 
 filepush() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho filepush /tmp/test.md\ncat /tmp/test.md | filepush test.md"; return 1; fi
 tmpfile=$( mktemp -t filepushXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://filepush.co/upload/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://filepush.co/upload/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }

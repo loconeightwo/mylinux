@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=bing-daily-wallpaper
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=bing-daily-wallpaper
+Name=bing-daily-wallpaper
+Comment[en_US]=
+Comment=
