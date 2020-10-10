@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 #
 # Mylinux config on Popos 20.04
 
