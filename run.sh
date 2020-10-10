@@ -53,7 +53,14 @@ echo "${BLUE}Install Skype${NC}"
 wget https://repo.skype.com/latest/skypeforlinux-64.deb
 sudo dpkg -i skypeforlinux-64.deb
 sudo apt install -f 
+
+# Remove some downloaded file
+rm google-chrome-stable_current_amd64.deb
+rm teamviewer_amd64.deb
+rm skypeforlinux-64.deb
 printf "\033c"
+
+
 
 echo "${GREEN}Install some packages${NC}"
 sudo apt install zsh ruby ruby-dev ibus-bamboo python3-pip gnome-tweak-tool albert python3-nautilus libinput-tools xdotool htop nodejs npm gnome-shell-extensions chrome-gnome-shell -y
