@@ -1,10 +1,9 @@
 #!/usr/bin/sh
 #
-# Mylinux config on Popos 20.04
+# Mylinux config on Popos 20.10
 
 DIRECTORY=$(cd `dirname $0` && pwd)
 OSNUMBER=$(lsb_release -sr)
-
 printf "\033c"
 RED='\033[0;31m'
 GREEN='\033[0;32m'
