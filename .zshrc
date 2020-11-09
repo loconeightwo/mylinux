@@ -22,8 +22,11 @@ alias l='colorls --group-directories-first --almost-all'
 alias ll='colorls --group-directories-first --almost-all --long'
 
 alias cls='printf "\033c"'
+
 connectMeganet(){
-	curl -JL 'http://10.10.0.1/wifi/login?m=AC:ED:5C:4C:83:F3' > /dev/null
+	WIFIDEVICE=wlp2s0
+	MAC=$(cat /sys/class/net/$WIFIDEVICE/address)
+	curl -JL "http://10.10.0.1/wifi/login?m=$MAC" > /dev/null
 }
 
 filepush() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho filepush /tmp/test.md\ncat /tmp/test.md | filepush test.md"; return 1; fi
