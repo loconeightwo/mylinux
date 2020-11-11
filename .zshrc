@@ -23,9 +23,39 @@ alias ll='colorls --group-directories-first --almost-all --long'
 
 alias cls='printf "\033c"'
 
+connectWireGuard() {
+	if [ $# -eq 0 ]; then
+		echo -e "No arguments specified. \nUsage:connectWireGuard path/to/config/file\nEx:connectWireGuard warp.conf"
+		return 1
+	fi
+	NETWORKNAME=$(basename "${1%.*}")
+	for i in 1 2 3 4 5; do
+		nmcli connection import type wireguard file $1
+		echo "Checking connection... this can take a while"
+		if ping -c 1 1.1.1.1 >/dev/null; then
+			disconnectWireGuard $NETWORKNAME
+			echo "Retrying connecting....."
+			if [ $i -eq 5 ]; then
+				echo "Connection False"
+				return 1
+			fi
+		else
+			echo "Connection Established"
+			return 0
+		fi
+	done
+}
+
+disconnectWireGuard() {
+	if [ $# -eq 0 ]; then
+		echo -e "No arguments specified. Usage:\nconnectWireGuard warp"
+		return 1
+	fi
+	nmcli connection delete $1
+}
+
 connectMeganet() {
 	WIFIDEVICE=wlp2s0
-
 	MAC=$(cat /sys/class/net/$WIFIDEVICE/address)
 	curl -JL "http://10.10.0.1/wifi/login?m=$MAC" >/dev/null
 }
